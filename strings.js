@@ -61,19 +61,22 @@ function secretCheck () {
     var fname = document.getElementById("fname").value;
     var lname = document.getElementById("lname").value;
     var zip = document.getElementById("zip").value;
+    //makes sure to have an integer version of "zip"
+    var zipInt = parseInt(document.getElementById("zip").value);
     var fullname = fname + ' ' + lname;
 
     //console checks for the different values, to make sure the checks go through correctly.
     //console.log(fname);
     //console.log(lname);
-    //console.log(zip)
+    //console.log(zip);
     //console.log(fullname);
+    //console.log(Number.isInteger(zipInt));
 
     //If the variable "fullname" is less than or equal to 20 characters (in other words, NOT greater than 20)...
     if (fullname.length <= 20) {
 
-        //then check the zip code, to see if it is 5 digits. If true...
-        if (zip.length == 5){
+        //then check the zip code, to see if it is 5 digits (must be a number). If true...
+        if (zip.length == 5 && Number.isInteger(zipInt) == true){
 
             //reveal the secret by changing its text value! It's always there, but there's nothing to do with it until then.
             document.getElementById('secret').innerHTML = "You found the secret! Click Me!"
